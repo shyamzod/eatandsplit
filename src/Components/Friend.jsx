@@ -15,7 +15,7 @@ function Friend({ FriendsList, ChangeBillFriend, ModifyFriends }) {
     <>
       <div>
         {FriendsList.map((friend) => (
-          <div className="Friend">
+          <div className="Friend" key={friend.id}>
             <div>
               <img src={friend.imageurl} alt={friend.name} />
             </div>
@@ -26,7 +26,7 @@ function Friend({ FriendsList, ChangeBillFriend, ModifyFriends }) {
             <div>
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 onClick={() => handleOnClick(friend.id)}
               >
                 {friend.isSelected ? "Close" : "Select"}
