@@ -35,3 +35,14 @@ h1 {
 .AddFriendForm div {
   margin-top: 10px;
 }
+.MainDiv {
+  display: flex;
+  flex-direction: row;
+}
+.SplitBillCompoForm {
+  margin-top: 5rem;
+  margin-left: 3rem;
+}
+.billPayerDropdown {
+  width: 10px;
+}
