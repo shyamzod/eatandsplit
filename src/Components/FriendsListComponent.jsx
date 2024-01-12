@@ -13,7 +13,7 @@ function FriendsListComponent({
   }
   return (
     <>
-      <h1>Friends List</h1>
+      <h1 className="heading">Split and Eat</h1>
       <div className="FriendsList">
         <Friend
           FriendsList={Friends}

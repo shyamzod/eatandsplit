@@ -7,34 +7,34 @@ const DefaultFriendsList = [
     id: 1,
     name: "Ramdas",
     imageurl: url,
-    balance: "Rahul owes 50$",
+    balance: 300,
     isSelected: false,
   },
   {
     id: 2,
     name: "Kalpana",
     imageurl: url,
-    balance: "I owe Shyam 10$",
+    balance: -200,
     isSelected: false,
   },
   {
     id: 3,
     name: "Rahul",
     imageurl: url,
-    balance: "Shyam owes 400$",
+    balance: 200,
     isSelected: false,
   },
   {
     id: 4,
     name: "Shyam",
     imageurl: url,
-    balance: "I owe Ramdas 40$",
+    balance: -400,
     isSelected: false,
   },
 ];
 
 function App() {
-  const [Friends, ModifyFriends] = useState(DefaultFriendsList);
+  const [Friends, ModifyFriends] = useState([]);
   const [buttonAddFriend, ChangeButtonToggle] = useState(false);
   const [SplitBillFriend, ChangeBillFriend] = useState({
     name: "Ramdas",
@@ -57,6 +57,8 @@ function App() {
         <div>
           <SplitBillComponent
             SplitBillFriend={SplitBillFriend}
+            Friends={Friends}
+            ModifyFriends={ModifyFriends}
           ></SplitBillComponent>
         </div>
       </div>

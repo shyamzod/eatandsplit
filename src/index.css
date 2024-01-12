@@ -22,11 +22,6 @@
   background-color: whitesmoke;
   border-radius: 20px;
 }
-
-h1 {
-  text-align: center;
-  margin-right: 300px;
-}
 .AddFriendForm {
   display: flex;
   justify-content: center;
@@ -45,4 +40,21 @@ h1 {
 }
 .billPayerDropdown {
   width: 10px;
+}
+.pGreen {
+  color: green;
+}
+.pRed {
+  color: red;
+}
+.FriendNameandBalance {
+  min-width: 30vh;
+}
+.ListStart {
+  margin-top: 3vh;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

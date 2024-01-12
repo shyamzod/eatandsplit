@@ -1,4 +1,6 @@
 import { useState } from "react";
+import defaultimage from "../utility/Images/profileimage.jpeg";
+let masterId = 0;
 function AddFriendForm({ Friends, ModifyFriends, ToggleAddFriendForm }) {
   const [imageurlinput, ChangeImageUrl] = useState("");
   const [nameInput, ChangeNameInput] = useState("");
@@ -12,9 +14,11 @@ function AddFriendForm({ Friends, ModifyFriends, ToggleAddFriendForm }) {
   function handleFormSubmit(event) {
     event.preventDefault();
     const newFriend = {
+      id: ++masterId,
       name: nameInput,
-      imageurl: imageurlinput,
-      balance: "Rahul owes 50$",
+      imageurl: imageurlinput === "" ? defaultimage : imageurlinput,
+      balance: 0,
+      isSelected: false,
     };
     ModifyFriends([...Friends, newFriend]);
   }

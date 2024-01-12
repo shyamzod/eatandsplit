@@ -1,12 +1,44 @@
-function SplitBillComponent({ SplitBillFriend }) {
-  function handleOnSubmit(event) {
+import { useState } from "react";
+function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
+  function handleOnSubmit(event, id) {
     event.preventDefault();
+
+    const friendwithid = Friends.map((friend) => {
+      if (friend.id === id) {
+        const result =
+          billvalue - (billpayer === "1" ? myExpense : friendExpense);
+        return {
+          ...friend,
+          balance: friend.balance + (billpayer === 1 ? result : -result),
+        };
+      }
+      return friend;
+    });
+
+    console.log(friendwithid[0]);
+    ModifyFriends(friendwithid);
+  }
+  const [billvalue, ChangeBillValue] = useState(0);
+  const [myExpense, ChangeMyExpense] = useState(0);
+  const [friendExpense, ChangeFriendExpense] = useState(0);
+  const [billpayer, ChangeBillPayer] = useState(0);
+  function BillChangeHandler(event) {
+    ChangeBillValue(event.target.value);
+  }
+  function MyExpenseHandler(event) {
+    ChangeMyExpense(event.target.value);
+  }
+  function FriendExpenseHandler(event) {
+    ChangeFriendExpense(event.target.value);
+  }
+  function HandleBillPayerChange(event) {
+    ChangeBillPayer(event.target.value);
   }
   return (
     <>
       {SplitBillFriend.isSelected && (
         <div className="SplitBillCompoForm">
-          <form onSubmit={handleOnSubmit}>
+          <form onSubmit={(event) => handleOnSubmit(event, SplitBillFriend.id)}>
             <h2>Split a Bill With {SplitBillFriend.name}</h2>
             <div className="mb-3">
               <label htmlFor="billvalueinput" className="form-label">
@@ -16,6 +48,7 @@ function SplitBillComponent({ SplitBillFriend }) {
                 type="number"
                 className="form-control"
                 id="billvalueinput"
+                onChange={BillChangeHandler}
               />
             </div>
             <div className="mb-3">
@@ -26,6 +59,7 @@ function SplitBillComponent({ SplitBillFriend }) {
                 type="number"
                 className="form-control"
                 id="yourvalueinput"
+                onChange={MyExpenseHandler}
               />
             </div>
             <div className="mb-3">
@@ -36,6 +70,7 @@ function SplitBillComponent({ SplitBillFriend }) {
                 type="number"
                 className="form-control"
                 id="friendsvalueinput"
+                onChange={FriendExpenseHandler}
               />
             </div>
             <div>
@@ -45,6 +80,7 @@ function SplitBillComponent({ SplitBillFriend }) {
               <select
                 className="form-select form-select-lg mb-3 billPayerDropdown"
                 id="billpayerdrop"
+                onChange={HandleBillPayerChange}
               >
                 <option value="0">Select</option>
                 <option value="1">You</option>
