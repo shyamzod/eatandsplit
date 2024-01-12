@@ -13,7 +13,11 @@ function FriendsListComponent({
   }
   return (
     <>
-      <h1 className="heading">Split and Eat</h1>
+      <h1 className="heading">
+        <span style={{ color: "#ffc107" }}>Eat</span>
+        <span style={{ color: "#ffffff" }}>And</span>
+        <span style={{ color: "#ffc107" }}>Split</span>
+      </h1>
       <div className="FriendsList">
         <Friend
           FriendsList={Friends}

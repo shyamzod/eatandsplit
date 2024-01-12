@@ -3,20 +3,24 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
   function handleOnSubmit(event, id) {
     event.preventDefault();
 
-    const friendwithid = Friends.map((friend) => {
+    const friends = Friends.map((friend) => {
       if (friend.id === id) {
         const result =
           billvalue - (billpayer === "1" ? myExpense : friendExpense);
         return {
           ...friend,
-          balance: friend.balance + (billpayer === 1 ? result : -result),
+          balance: friend.balance + (billpayer === "1" ? result : -result),
         };
       }
       return friend;
     });
 
-    console.log(friendwithid[0]);
-    ModifyFriends(friendwithid);
+    console.log(friends[0]);
+    ModifyFriends(friends);
+    ChangeBillValue(0);
+    ChangeMyExpense(0);
+    ChangeFriendExpense(0);
+    ChangeBillPayer("0");
   }
   const [billvalue, ChangeBillValue] = useState(0);
   const [myExpense, ChangeMyExpense] = useState(0);
@@ -49,6 +53,7 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
                 className="form-control"
                 id="billvalueinput"
                 onChange={BillChangeHandler}
+                value={billvalue}
               />
             </div>
             <div className="mb-3">
@@ -60,6 +65,7 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
                 className="form-control"
                 id="yourvalueinput"
                 onChange={MyExpenseHandler}
+                value={myExpense}
               />
             </div>
             <div className="mb-3">
@@ -71,6 +77,7 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
                 className="form-control"
                 id="friendsvalueinput"
                 onChange={FriendExpenseHandler}
+                value={friendExpense}
               />
             </div>
             <div>
@@ -81,6 +88,7 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
                 className="form-select form-select-lg mb-3 billPayerDropdown"
                 id="billpayerdrop"
                 onChange={HandleBillPayerChange}
+                value={billpayer}
               >
                 <option value="0">Select</option>
                 <option value="1">You</option>

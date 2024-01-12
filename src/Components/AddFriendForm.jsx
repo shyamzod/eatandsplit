@@ -21,6 +21,8 @@ function AddFriendForm({ Friends, ModifyFriends, ToggleAddFriendForm }) {
       isSelected: false,
     };
     ModifyFriends([...Friends, newFriend]);
+    ChangeImageUrl("");
+    ChangeNameInput("");
   }
   return (
     <>
