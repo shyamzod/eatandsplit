@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Friend from "./Friend";
 import AddFriendForm from "./AddFriendForm";
 

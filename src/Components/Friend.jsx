@@ -3,9 +3,10 @@ import "bootstrap/dist/js/bootstrap.min.js";
 function Friend({ FriendsList, ChangeBillFriend, ModifyFriends }) {
   function handleOnClick(id) {
     const SplitFriend = FriendsList.filter((friend) => friend.id === id);
-    const UpdatedArray = FriendsList.map((friend) =>
-      friend.id === id ? { ...friend, isSelected: !friend.isSelected } : friend
-    );
+    const UpdatedArray = FriendsList.map((friend) => ({
+      ...friend,
+      isSelected: friend.id === id ? !friend.isSelected : false,
+    }));
     ModifyFriends(UpdatedArray);
     SplitFriend[0].isSelected = !SplitFriend[0].isSelected;
     ChangeBillFriend(SplitFriend[0]);
@@ -16,7 +17,7 @@ function Friend({ FriendsList, ChangeBillFriend, ModifyFriends }) {
         {FriendsList.map((friend) => (
           <div className="Friend">
             <div>
-              <img src={friend.imageurl} />
+              <img src={friend.imageurl} alt={friend.name} />
             </div>
             <div>
               <h4>{friend.name}</h4>
