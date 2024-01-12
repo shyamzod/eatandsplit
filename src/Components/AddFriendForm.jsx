@@ -23,22 +23,22 @@ function AddFriendForm({ Friends, ModifyFriends, ToggleAddFriendForm }) {
       {ToggleAddFriendForm && (
         <div>
           <form onSubmit={handleFormSubmit}>
-            <div class="form-group">
-              <label for="exampleInputEmail1">ImageUrl</label>
+            <div className="form-group">
+              <label htmlFor="exampleInputEmail1">ImageUrl</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="imageurlinput"
                 placeholder="Enter Image Url"
                 value={imageurlinput}
                 onChange={handleImageUrlInput}
               />
             </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Friend Name</label>
+            <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Friend Name</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="imageurlinput"
                 placeholder="Enter Friend"
                 value={nameInput}
@@ -47,7 +47,7 @@ function AddFriendForm({ Friends, ModifyFriends, ToggleAddFriendForm }) {
             </div>
             <div>
               {" "}
-              <button type="submit" class="btn btn-warning">
+              <button type="submit" className="btn btn-warning">
                 Add Friend
               </button>
             </div>
