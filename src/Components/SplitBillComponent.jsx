@@ -14,8 +14,6 @@ function SplitBillComponent({ SplitBillFriend, Friends, ModifyFriends }) {
       }
       return friend;
     });
-
-    console.log(friends[0]);
     ModifyFriends(friends);
     ChangeBillValue(0);
     ChangeMyExpense(0);

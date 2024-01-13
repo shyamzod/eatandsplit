@@ -56,6 +56,7 @@ function App() {
         </div>
         <div>
           <SplitBillComponent
+            key={SplitBillFriend.id}
             SplitBillFriend={SplitBillFriend}
             Friends={Friends}
             ModifyFriends={ModifyFriends}
